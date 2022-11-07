@@ -4,13 +4,22 @@ import Form from 'react-bootstrap/Form';
 import img from './user-registration-illustration-flat-vector-shipwithseair-seair.png.crdownload'
 
 const SignUp = () => {
+
+
+    const handleSignUp = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        console.log(form)
+    }
+
+
     return (
         <div className='login-container'>
             <div className='img-container'>
                 <img src={img} alt="" />
             </div>
             <div className='form-container'>
-                <Form>
+                <Form onSubmit={handleSignUp}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Your Name</Form.Label>
                         <Form.Control name='name' type="email" placeholder="Enter your name" required />
