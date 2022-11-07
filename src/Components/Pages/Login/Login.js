@@ -1,18 +1,50 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Login.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { FaGoogle, IconName } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 import img from './login1.png'
+import { AuthContext } from '../../../Context/Authprovider/AuthProvider';
 
 const Login = () => {
+
+    const { login, googleLogIn } = useContext(AuthContext);
+
+    const handleGoogleLogin = () => {
+        googleLogIn()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password)
+        login(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+
     return (
         <div className='login-container'>
             <div className='img-container'>
                 <img src={img} alt="" />
             </div>
             <div className='form-container'>
-                <Form>
+                <Form onSubmit={handleLogin}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control name='email' type="email" placeholder="Enter email" required />
@@ -31,7 +63,7 @@ const Login = () => {
                     <hr />
                     <div className='google'>
                         <span>Log In With </span>
-                        <FaGoogle className='google-logo'></FaGoogle>
+                        <FaGoogle onClick={handleGoogleLogin} className='google-logo'></FaGoogle>
                     </div>
                 </Form>
             </div>

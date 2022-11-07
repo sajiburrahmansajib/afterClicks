@@ -4,8 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import logo from './AfterClicks.png'
 import { Link, NavLink } from 'react-router-dom';
-import { FaUserAlt, IconName } from "react-icons/fa";
-import Button from 'react-bootstrap/Button';
+import { FaUserAlt } from "react-icons/fa";
 import './Header.css'
 import { AuthContext } from '../../../Context/Authprovider/AuthProvider';
 
@@ -40,7 +39,7 @@ const Header = () => {
                         <div className='user-imgContainer'>
                             {
                                 user?.uid ?
-                                    <img className='user-img rounded-circle' src={logo} alt="" />
+                                    <img className='user-img rounded-circle' src={user.photoURL} alt="" />
                                     :
                                     <FaUserAlt className='icon'></FaUserAlt>
                             }
@@ -49,7 +48,7 @@ const Header = () => {
 
                         {
                             user?.uid ?
-                                <Button onClick={handleLogout} variant="danger">LogOut</Button>
+                                <Link onClick={handleLogout}>LogOut</Link>
                                 :
                                 <NavLink to='/login'>LogIn</NavLink>
                         }
