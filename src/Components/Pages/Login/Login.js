@@ -2,6 +2,7 @@ import React from 'react';
 import './Login.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { FaGoogle, IconName } from "react-icons/fa";
 import img from './login1.png'
 
 const Login = () => {
@@ -27,9 +28,14 @@ const Login = () => {
                     <Button variant="primary" type="submit">
                         Login
                     </Button>
+                    <hr />
+                    <div className='google'>
+                        <span>Log In With </span>
+                        <FaGoogle className='google-logo'></FaGoogle>
+                    </div>
                 </Form>
-
             </div>
+
         </div>
     );
 };
