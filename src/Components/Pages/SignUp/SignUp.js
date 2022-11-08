@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../../Context/Authprovider/AuthProvider';
-import img from './user-registration-illustration-flat-vector-shipwithseair-seair.png.crdownload'
+import img from './signup.png'
 
 const SignUp = () => {
     const { createUser } = useContext(AuthContext);

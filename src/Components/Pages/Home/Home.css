@@ -1,0 +1,16 @@
+.home-card {
+    background-color: crimson;
+    text-align: center;
+    padding: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.home-card h1 {
+    color: white;
+}
+
+.home-card button {
+    font-size: larger;
+    font-weight: 800;
+}
