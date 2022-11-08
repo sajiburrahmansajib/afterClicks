@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import CarouselH from '../Carousel/CarouselH';
 import Service from '../Service/Service';
 import './Home.css'
@@ -16,7 +16,7 @@ const Home = () => {
                         services.map(service => <Service key={service._id} service={service}></Service>)
                     }
                 </div>
-                <button type="button" className="btn btn-success">See All Services</button>
+                <Link to='/allservices'><button type="button" className="btn btn-success">See All Services</button></Link>
             </div>
         </div>
     );

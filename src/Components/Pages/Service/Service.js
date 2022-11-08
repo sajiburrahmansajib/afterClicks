@@ -1,13 +1,14 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 import './Service.css'
 
 const Service = ({ service }) => {
     const { info } = service;
     return (
         <div>
-            <Card style={{ width: '18rem' }} className='service-card'>
+            <Card style={{ width: '24rem' }} className='service-card'>
                 <Card.Img variant="top" src={service.picture} />
                 <Card.Body>
                     <Card.Title>{service.name}</Card.Title>
@@ -23,7 +24,7 @@ const Service = ({ service }) => {
                         Price : {service.price} tk
                     </Card.Text>
 
-                    <Button variant="primary">View Details</Button>
+                    <Link><Button variant="primary">View Details</Button></Link>
                 </Card.Body>
             </Card>
 
