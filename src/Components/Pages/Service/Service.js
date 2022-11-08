@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import './Service.css'
 
 const Service = ({ service }) => {
-    console.log(service)
+    const { info } = service;
     return (
         <div>
             <Card style={{ width: '18rem' }} className='service-card'>
@@ -12,9 +12,17 @@ const Service = ({ service }) => {
                 <Card.Body>
                     <Card.Title>{service.name}</Card.Title>
                     <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
+                        {
+                            info.length > 120 ?
+                                <>{info.slice(0, 100) + '...'}  </>
+                                :
+                                info
+                        }
                     </Card.Text>
+                    <Card.Text>
+                        Price : {service.price} tk
+                    </Card.Text>
+
                     <Button variant="primary">View Details</Button>
                 </Card.Body>
             </Card>
