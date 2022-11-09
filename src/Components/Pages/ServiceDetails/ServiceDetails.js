@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 const ServiceDetails = ({ data }) => {
     const { name, _id, info, picture } = data;
@@ -18,7 +19,7 @@ const ServiceDetails = ({ data }) => {
                                 info
                         }
                     </Card.Text>
-                    <Button variant="success">View Details</Button>
+                    <Link to={`/serviceDetailsInformation/${_id}`}><Button variant="success">View Details</Button></Link>
                 </Card.Body>
             </Card>
         </div>

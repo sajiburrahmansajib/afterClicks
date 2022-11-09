@@ -9,7 +9,7 @@ const AllService = () => {
     return (
         <div className='service-container'>
             {
-                data.map(d => <ServiceDetails key={_id} data={d}></ServiceDetails>)
+                data.map(d => <ServiceDetails key={d._id} data={d}></ServiceDetails>)
             }
         </div>
     );
