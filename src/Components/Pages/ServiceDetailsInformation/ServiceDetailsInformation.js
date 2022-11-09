@@ -19,23 +19,28 @@ const ServiceDetailsInformation = () => {
         let month = today.getMonth() + 1;
         let date = today.getDate();
         const currentDate = `${date}/${month}/${year}`;
-        let hour = today.getHours();
-        let minute = today.getMinutes();
-        const currentTime = `${hour}:${minute}`;
-        console.log(currentDate, currentTime)
+        // let hour = today.getHours();
+        // let minute = today.getMinutes();
+        // const currentTime = Date.UTC(`${hour}:${minute}`);
+        const d = new Date();
+        let time = d.toLocaleString();
+        console.log()
 
         const form = event.target;
         const message = form.comment.value;
         const email = user?.email;
+        const name = user?.displayName;
+        const photo = user?.photoURL;
         console.log(email)
         console.log(message)
 
         const review = {
             message,
             email,
-            _id,
-            currentDate,
-            currentTime
+            serviceID: _id,
+            name,
+            photo,
+            time
         }
         fetch('http://localhost:5000/review', {
             method: 'POST',
