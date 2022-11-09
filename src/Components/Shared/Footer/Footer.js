@@ -16,7 +16,7 @@ const Footer = () => {
                     <li className="nav-item"><Link href="#" className="nav-link px-2 text-muted">FAQs</Link></li>
                     <li className="nav-item"><Link href="#" className="nav-link px-2 text-muted">About</Link></li>
                 </ul>
-                <p className="text-center text-muted">&copy; 2022 Sajibur Rahman</p>
+                <p className="text-center text-muted">&copy; 2022 Sajibur Rahman Sajib</p>
                 <ul className="list-unstyled d-flex">
 
                 </ul>

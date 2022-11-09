@@ -1,0 +1,22 @@
+.review-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    margin-top: 20px;
+
+}
+
+.user-info img {
+    width: 50px;
+
+}
+
+.user {
+    line-height: 10px;
+}
+
+.comment-container {
+    background-color: antiquewhite;
+    padding: 10px;
+    border-radius: 5px;
+}

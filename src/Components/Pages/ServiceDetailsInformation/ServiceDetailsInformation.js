@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { AuthContext } from '../../../Context/Authprovider/AuthProvider';
+import Reviews from '../Reviews/Reviews';
 
 
 const ServiceDetailsInformation = () => {
@@ -10,22 +11,20 @@ const ServiceDetailsInformation = () => {
     const serviceData = useLoaderData()
     const [box, setBox] = useState(false)
     const [toggle, setToggle] = useState(true)
+    const [reviews, setReviews] = useState([]);
     const { name, info, picture, price, _id } = serviceData;
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews/${_id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [toggle])
 
     const handleReviewSubmit = (event) => {
         event.preventDefault();
-        let today = new Date();
-        let year = today.getFullYear();
-        let month = today.getMonth() + 1;
-        let date = today.getDate();
-        const currentDate = `${date}/${month}/${year}`;
-        // let hour = today.getHours();
-        // let minute = today.getMinutes();
-        // const currentTime = Date.UTC(`${hour}:${minute}`);
         const d = new Date();
         let time = d.toLocaleString();
-        console.log()
-
         const form = event.target;
         const message = form.comment.value;
         const email = user?.email;
@@ -53,8 +52,8 @@ const ServiceDetailsInformation = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Review placed successfully')
-                    // form.reset();
+
+                    form.reset();
 
                 }
             })
@@ -76,7 +75,7 @@ const ServiceDetailsInformation = () => {
 
     return (
         <div>
-            <Card style={{ width: '24rem' }} className='service-card mt-3'>
+            <Card style={{ width: '26rem' }} className='service-card mt-3'>
                 <Card.Img variant="top" src={picture} />
                 <Card.Body>
                     <Card.Title>Title : {name}</Card.Title>
@@ -106,8 +105,16 @@ const ServiceDetailsInformation = () => {
                             <Button onClick={() => handleReview(serviceData)} variant="primary">Add Review</Button>
                         }
                     </div>
+                    <div>
+                        {
+                            reviews.map(re => <Reviews key={re._id} review={re}></Reviews>)
+                        }
+
+                    </div>
+
                 </Card.Body>
             </Card>
+
         </div>
     );
 };

@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import { FaGoogle } from "react-icons/fa";
 import img from './login1.png'
 import { AuthContext } from '../../../Context/Authprovider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
 
@@ -14,6 +15,7 @@ const Login = () => {
         googleLogIn()
             .then(result => {
                 const user = result.user;
+                toast.success('Successfully Log In')
                 console.log(user);
             })
             .catch(error => {
@@ -30,6 +32,7 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
+                toast.success('Successfully Log In')
                 console.log(user)
             })
             .catch(error => {
