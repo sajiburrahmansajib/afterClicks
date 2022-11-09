@@ -29,6 +29,10 @@ const Header = () => {
                         <Nav className="me-auto option">
                             <NavLink to='/home'>Home</NavLink>
                             <NavLink to='/home'>Services</NavLink>
+                            {
+                                user?.uid &&
+                                <NavLink to='/home'>My Review</NavLink>
+                            }
                             <NavLink to='/blogs'>Blog</NavLink>
                         </Nav>
                     </Navbar.Collapse>
