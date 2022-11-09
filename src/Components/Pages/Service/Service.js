@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './Service.css'
 
 const Service = ({ service }) => {
-    const { info } = service;
+    const { _id, info } = service;
     return (
         <div>
             <Card style={{ width: '24rem' }} className='service-card'>
@@ -20,11 +20,7 @@ const Service = ({ service }) => {
                                 info
                         }
                     </Card.Text>
-                    <Card.Text>
-                        Price : {service.price} tk
-                    </Card.Text>
-
-                    <Link><Button variant="primary">View Details</Button></Link>
+                    <Link to={`/serviceDetailsInformation/${_id}`}><Button variant="primary">View Details</Button></Link>
                 </Card.Body>
             </Card>
 

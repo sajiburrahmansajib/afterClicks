@@ -3,6 +3,7 @@ import AllService from "../Components/Pages/AllService/AllService";
 import Blog from "../Components/Pages/Blog/Blog";
 import Home from "../Components/Pages/Home/Home";
 import Login from "../Components/Pages/Login/Login";
+import ServiceDetailsInformation from "../Components/Pages/ServiceDetailsInformation/ServiceDetailsInformation";
 import SignUp from "../Components/Pages/SignUp/SignUp";
 import Main from "../Layout/Main";
 
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
                 path: '/allservices',
                 element: <AllService></AllService>,
                 loader: () => fetch('http://localhost:5000/allservices'),
+            },
+            {
+                path: '/serviceDetailsInformation/:id',
+                element: <ServiceDetailsInformation></ServiceDetailsInformation>,
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             }
         ]
 
