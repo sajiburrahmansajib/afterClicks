@@ -25,7 +25,7 @@ const ServiceDetailsInformation = () => {
         fetch(`http://localhost:5000/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [toggle, reviews, box])
+    }, [toggle, reviews, box, serviceData, _id])
 
     const handleReviewSubmit = (event) => {
         event.preventDefault();
@@ -34,6 +34,7 @@ const ServiceDetailsInformation = () => {
         const form = event.target;
         const message = form.comment.value;
         const email = user?.email;
+        const serviceName = serviceData.name;
         const name = user?.displayName;
         const photo = user?.photoURL;
         console.log(email)
@@ -44,6 +45,7 @@ const ServiceDetailsInformation = () => {
             email,
             serviceID: _id,
             name,
+            serviceName,
             photo,
             time
         }

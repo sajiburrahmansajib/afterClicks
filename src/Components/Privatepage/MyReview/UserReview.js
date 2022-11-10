@@ -1,10 +1,11 @@
 import React from 'react';
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import useTitle from '../../Title/useTitle';
 import './UserReview.css'
 
-const UserReview = ({ review, handleDelete, controlUpdate }) => {
-    const { message, name, photo, time, _id } = review;
+const UserReview = ({ review, handleDelete }) => {
+    const { message, name, photo, time, _id, serviceName } = review;
     console.log(review)
     useTitle('My Review')
 
@@ -22,9 +23,10 @@ const UserReview = ({ review, handleDelete, controlUpdate }) => {
                     {time}
                 </div>
             </td>
+            <td>{serviceName}</td>
             <td>{message}</td>
             <td className='text-center option'><FaTrashAlt onClick={() => handleDelete(_id)}></FaTrashAlt></td>
-            <td className='text-center option'><FaEdit onClick={() => controlUpdate(review)}></FaEdit></td>
+            <td className='text-center option'> <Link to={`/editreview/${_id}`}><FaEdit></FaEdit> </Link></td>
         </tr>
 
     );
