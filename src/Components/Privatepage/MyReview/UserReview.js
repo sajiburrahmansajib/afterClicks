@@ -1,9 +1,12 @@
 import React from 'react';
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
+import useTitle from '../../Title/useTitle';
 import './UserReview.css'
 
 const UserReview = ({ review, handleDelete, controlUpdate }) => {
     const { message, name, photo, time, _id } = review;
+    console.log(review)
+    useTitle('My Review')
 
     return (
 

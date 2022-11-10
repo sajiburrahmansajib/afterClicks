@@ -7,11 +7,12 @@ import img from './login1.png'
 import { AuthContext } from '../../../Context/Authprovider/AuthProvider';
 import toast from 'react-hot-toast';
 import useTitle from '../../Title/useTitle';
+import Spinner from 'react-bootstrap/Spinner';
 
 const Login = () => {
-    useTitle('Login')
-
-    const { login, googleLogIn } = useContext(AuthContext);
+    useTitle('Login');
+    const { login, googleLogIn, spinnerLoader, setSpinnerLoader } = useContext(AuthContext);
+    setSpinnerLoader(false)
 
     const handleGoogleLogin = () => {
         googleLogIn()
@@ -44,33 +45,44 @@ const Login = () => {
 
 
     return (
-        <div className='login-container'>
-            <div className='img-container'>
-                <img src={img} alt="" />
-            </div>
-            <div className='form-container'>
-                <Form onSubmit={handleLogin}>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control name='email' type="email" placeholder="Enter email" required />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
+        <div>
+            {
+                spinnerLoader &&
+                <div id='spinner' className='spinner-container'>
+                    <Spinner animation="border" variant="success" />
+                </div>
+            }
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control name='password' type="password" placeholder="Password" required />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Login
-                    </Button>
-                    <hr />
-                    <div className='google'>
-                        <span>Log In With </span>
-                        <FaGoogle onClick={handleGoogleLogin} className='google-logo'></FaGoogle>
-                    </div>
-                </Form>
+
+            <div className='login-container'>
+                <div className='img-container'>
+                    <img src={img} alt="" />
+                </div>
+                <div className='form-container'>
+                    <Form onSubmit={handleLogin}>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control name='email' type="email" placeholder="Enter email" required />
+                            <Form.Text className="text-muted">
+                                We'll never share your email with anyone else.
+                            </Form.Text>
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control name='password' type="password" placeholder="Password" required />
+                        </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Login
+                        </Button>
+                        <hr />
+                        <div className='google'>
+                            <span>Log In With </span>
+                            <FaGoogle onClick={handleGoogleLogin} className='google-logo'></FaGoogle>
+                        </div>
+                    </Form>
+                </div>
+
             </div>
 
         </div>

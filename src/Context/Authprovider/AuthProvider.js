@@ -12,6 +12,7 @@ const provider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [spinnerLoader, setSpinnerLoader] = useState(false)
 
 
     const createUser = (email, password) => {
@@ -47,15 +48,16 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-
-
     const authInfo = {
         user,
         loading,
         createUser,
         login,
         logOut,
-        googleLogIn
+        googleLogIn,
+        setSpinnerLoader,
+        spinnerLoader
+
     }
 
     return (

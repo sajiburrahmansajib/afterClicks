@@ -9,7 +9,7 @@ import './Header.css'
 import { AuthContext } from '../../../Context/Authprovider/AuthProvider';
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, setSpinnerLoader } = useContext(AuthContext);
     const handleLogout = () => {
         logOut()
             .then(() => {
@@ -30,7 +30,10 @@ const Header = () => {
                             <NavLink to='/'>Home</NavLink>
                             {
                                 user?.uid &&
-                                <NavLink to='/myreview'>My Review</NavLink>
+                                <>
+                                    <NavLink to='/myreview'>My Review</NavLink>
+                                    <NavLink to='/addservice'>Add Service</NavLink>
+                                </>
                             }
                             <NavLink to='/blogs'>Blog</NavLink>
                         </Nav>
@@ -53,9 +56,15 @@ const Header = () => {
                             user?.uid ?
                                 <Link onClick={handleLogout}>LogOut</Link>
                                 :
-                                <NavLink to='/login'>LogIn</NavLink>
+                                <>
+                                    <NavLink to='/login'>LogIn</NavLink>
+                                    <NavLink to='/signup'>SignUp</NavLink>
+                                    {
+                                        setSpinnerLoader(true)
+                                    }
+                                </>
                         }
-                        <NavLink to='/signup'>SignUp</NavLink>
+
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

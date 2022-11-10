@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../Context/Authprovider/AuthProvider';
 import useTitle from '../../Title/useTitle';
 import Camera from '../Camera/Camera';
 import CarouselH from '../Carousel/CarouselH';
@@ -9,6 +10,7 @@ import './Home.css'
 
 const Home = () => {
     const services = useLoaderData();
+    const { setSpinnerLoader } = useContext(AuthContext);
     useTitle('Home')
     return (
         <div>
@@ -21,6 +23,9 @@ const Home = () => {
                     }
                 </div>
                 <Link to='/allservices'><button type="button" className="btn btn-success">See All Services</button></Link>
+                {
+                    setSpinnerLoader(true)
+                }
             </div>
             <Product></Product>
             <Camera></Camera>

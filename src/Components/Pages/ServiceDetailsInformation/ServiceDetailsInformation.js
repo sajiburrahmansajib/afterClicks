@@ -4,6 +4,9 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { AuthContext } from '../../../Context/Authprovider/AuthProvider';
 import Reviews from '../Reviews/Reviews';
+import useTitle from '../../Title/useTitle';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 
 const ServiceDetailsInformation = () => {
@@ -13,6 +16,8 @@ const ServiceDetailsInformation = () => {
     const [toggle, setToggle] = useState(true)
     const [reviews, setReviews] = useState([]);
     const { name, info, picture, price, _id } = serviceData;
+
+    useTitle('Service Details')
 
 
     useEffect(() => {
@@ -76,7 +81,14 @@ const ServiceDetailsInformation = () => {
     return (
         <div>
             <Card style={{ width: '26rem' }} className='service-card mt-3'>
-                <Card.Img variant="top" src={picture} />
+
+
+                <PhotoProvider>
+                    <PhotoView src={picture}>
+                        <Card.Img variant="top" src={picture} />
+                    </PhotoView>
+                </PhotoProvider>
+
                 <Card.Body>
                     <Card.Title>Title : {name}</Card.Title>
                     <Card.Text>
