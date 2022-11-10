@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../../Context/Authprovider/AuthProvider';
+import useTitle from '../../Title/useTitle';
 import img from './signup.png'
 
 const SignUp = () => {
     const { createUser } = useContext(AuthContext);
+    useTitle('Signup')
 
 
     const handleSignUp = (event) => {

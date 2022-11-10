@@ -27,7 +27,7 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto option">
-                            <NavLink to='/home'>Home</NavLink>
+                            <NavLink to='/'>Home</NavLink>
                             {
                                 user?.uid &&
                                 <NavLink to='/myreview'>My Review</NavLink>

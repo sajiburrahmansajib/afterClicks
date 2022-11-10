@@ -5,7 +5,6 @@ import './AllService.css'
 
 const AllService = () => {
     const data = useLoaderData();
-    const { _id } = data;
     return (
         <div className='service-container'>
             {

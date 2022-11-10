@@ -1,8 +1,10 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
+import useTitle from '../../Title/useTitle';
 import img from './jwt.PNG'
 
 const Blog = () => {
+    useTitle('Blog')
     return (
         <div className='container'>
             <div >

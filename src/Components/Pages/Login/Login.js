@@ -6,8 +6,10 @@ import { FaGoogle } from "react-icons/fa";
 import img from './login1.png'
 import { AuthContext } from '../../../Context/Authprovider/AuthProvider';
 import toast from 'react-hot-toast';
+import useTitle from '../../Title/useTitle';
 
 const Login = () => {
+    useTitle('Login')
 
     const { login, googleLogIn } = useContext(AuthContext);
 

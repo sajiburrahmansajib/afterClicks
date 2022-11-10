@@ -3,7 +3,7 @@ import './Reviews.css'
 
 const Reviews = ({ review }) => {
     const { name, photo, time, message } = review;
-    console.log(review)
+    // console.log(review)
     return (
         <div className='container review-container'>
             <div className='user-info'>

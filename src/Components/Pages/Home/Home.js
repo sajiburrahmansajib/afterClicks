@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../Title/useTitle';
+import Camera from '../Camera/Camera';
 import CarouselH from '../Carousel/CarouselH';
+import Product from '../Product/Product';
 import Service from '../Service/Service';
 import './Home.css'
 
 const Home = () => {
     const services = useLoaderData();
+    useTitle('Home')
     return (
         <div>
             <CarouselH></CarouselH>
@@ -18,6 +22,8 @@ const Home = () => {
                 </div>
                 <Link to='/allservices'><button type="button" className="btn btn-success">See All Services</button></Link>
             </div>
+            <Product></Product>
+            <Camera></Camera>
         </div>
     );
 };

@@ -1,12 +1,12 @@
 import React from 'react';
-import Table from 'react-bootstrap/Table';
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
+import './UserReview.css'
 
-const UserReview = ({ review }) => {
-    const { message, name, photo, time } = review;
-    console.log(review)
+const UserReview = ({ review, handleDelete, controlUpdate }) => {
+    const { message, name, photo, time, _id } = review;
 
     return (
+
         <tr>
             <td>
                 <img className='w-25' src={photo} alt="" />
@@ -20,9 +20,10 @@ const UserReview = ({ review }) => {
                 </div>
             </td>
             <td>{message}</td>
-            <td className='text-center'><FaTrashAlt></FaTrashAlt></td>
-            <td className='text-center'><FaEdit></FaEdit></td>
+            <td className='text-center option'><FaTrashAlt onClick={() => handleDelete(_id)}></FaTrashAlt></td>
+            <td className='text-center option'><FaEdit onClick={() => controlUpdate(review)}></FaEdit></td>
         </tr>
+
     );
 };
 
