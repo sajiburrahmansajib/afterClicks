@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import toast from 'react-hot-toast';
 
 const Editreview = () => {
     const data = useLoaderData()
@@ -11,7 +12,7 @@ const Editreview = () => {
 
     const handleReviewUpdate = event => {
         event.preventDefault();
-        fetch(`http://localhost:5000/editreview/${_id}`, {
+        fetch(`https://afterclick-server-side.vercel.app/editreview/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -21,7 +22,7 @@ const Editreview = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert('user updated')
+                    toast.success('Update Successfully')
                     console.log(data);
                 }
             })

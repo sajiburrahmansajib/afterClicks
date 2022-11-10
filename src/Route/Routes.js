@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:5000/services'),
+                loader: () => fetch('https://afterclick-server-side.vercel.app/services'),
                 element: <Home></Home>
             },
             {
@@ -38,12 +38,12 @@ const router = createBrowserRouter([
             {
                 path: '/allservices',
                 element: <AllService></AllService>,
-                loader: () => fetch('http://localhost:5000/allservices'),
+                loader: () => fetch('https://afterclick-server-side.vercel.app/allservices'),
             },
             {
                 path: '/serviceDetailsInformation/:id',
                 element: <ServiceDetailsInformation></ServiceDetailsInformation>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://afterclick-server-side.vercel.app/services/${params.id}`)
             },
             {
                 path: '/myreview',
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
             {
                 path: '/editreview/:id',
                 element: <PrivateRoute><Editreview></Editreview></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/editreview/${params.id}`)
+                loader: ({ params }) => fetch(`https://afterclick-server-side.vercel.app/editreview/${params.id}`)
             }
         ]
 

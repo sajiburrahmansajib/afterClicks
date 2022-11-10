@@ -29,7 +29,7 @@ const Login = () => {
                 const currentUser = {
                     email: user.email
                 }
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://afterclick-server-side.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -62,7 +62,7 @@ const Login = () => {
                     email: user.email
                 }
                 form.reset();
-                fetch('https://genius-car-server-eight-kappa.vercel.app/jwt', {
+                fetch('https://afterclick-server-side.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

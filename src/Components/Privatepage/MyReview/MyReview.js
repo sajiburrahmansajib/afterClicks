@@ -12,7 +12,7 @@ const MyReview = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/review?email=${user?.email}`, {
+        fetch(`https://afterclick-server-side.vercel.app/review?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('afterClicksToken')}`
             }
@@ -21,7 +21,7 @@ const MyReview = () => {
                 if (res.status === 401 || res.status === 403) {
                     return logOut()
                 }
-                res.json()
+                return res.json()
             })
             .then(data => setReview(data))
     }, [user?.email, logOut]);
@@ -31,7 +31,7 @@ const MyReview = () => {
         const accept = window.confirm('Are you sure , You want to cancel this review');
         console.log(accept)
         if (accept) {
-            fetch(`http://localhost:5000/review/${id}`, {
+            fetch(`https://afterclick-server-side.vercel.app/review/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -49,7 +49,7 @@ const MyReview = () => {
 
     return (
         <div>
-            <h1 className='text-center p-2 text-success'>Total Review : {reviews.length}</h1>
+            <h1 className='text-center p-2 text-success'>Total Review : {reviews?.length}</h1>
             <Table striped bordered hover className='container'>
                 <thead>
                     <tr>

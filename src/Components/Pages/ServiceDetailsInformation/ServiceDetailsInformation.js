@@ -8,6 +8,7 @@ import useTitle from '../../Title/useTitle';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import PrivateRoute from '../../../Route/PrivateRoute/PrivateRoute';
+import toast from 'react-hot-toast';
 
 
 const ServiceDetailsInformation = () => {
@@ -22,7 +23,7 @@ const ServiceDetailsInformation = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${_id}`)
+        fetch(`https://afterclick-server-side.vercel.app/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [toggle, reviews, box, serviceData, _id])
@@ -49,7 +50,7 @@ const ServiceDetailsInformation = () => {
             photo,
             time
         }
-        fetch('http://localhost:5000/review', {
+        fetch('https://afterclick-server-side.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -60,7 +61,7 @@ const ServiceDetailsInformation = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-
+                    toast.success('Successfully Added')
                     form.reset();
 
                 }
