@@ -9,6 +9,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import PrivateRoute from '../../../Route/PrivateRoute/PrivateRoute';
 import toast from 'react-hot-toast';
+import './Servicedetailsinfo.css'
 
 
 const ServiceDetailsInformation = () => {
@@ -84,7 +85,7 @@ const ServiceDetailsInformation = () => {
 
     return (
         <div>
-            <Card style={{ width: '26rem' }} className='service-card mt-3'>
+            <Card className='service-card mt-3 service-details-info'>
 
 
                 <PhotoProvider>

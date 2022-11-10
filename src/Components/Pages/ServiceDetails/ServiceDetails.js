@@ -5,15 +5,14 @@ import { Link } from 'react-router-dom';
 import useTitle from '../../Title/useTitle';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
-
-
+import './Servicedetails.css'
 
 const ServiceDetails = ({ data }) => {
     const { name, _id, info, picture } = data;
     useTitle('Services')
     return (
         <div>
-            <Card style={{ width: '24rem' }} className='service-card'>
+            <Card style={{ width: '22rem' }} className='service-card'>
                 <PhotoProvider>
                     <PhotoView src={picture}>
                         <Card.Img variant="top" src={picture} />

@@ -50,29 +50,29 @@ const MyReview = () => {
     return (
         <div>
             <h1 className='text-center p-2 text-success'>Total Review : {reviews?.length}</h1>
-            <Table striped bordered hover className='container'>
-                <thead>
-                    <tr>
-                        <th>User Image</th>
-                        <th>User Information</th>
-                        <th>Service Name</th>
-                        <th>Review</th>
-                        <th>Delete</th>
-                        <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        reviews.map(review => <UserReview
+            <div className='review'>
+                <Table striped bordered hover className='container'>
+                    <thead>
+                        <tr>
+                            <th>User Image</th>
+                            <th>User Information</th>
+                            <th>Service Name</th>
+                            <th>Review</th>
+                            <th>Delete</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            reviews.map(review => <UserReview
 
-                            review={review}
-                            handleDelete={handleDelete}
-                        ></UserReview>)
-                    }
-                </tbody>
-            </Table>
-
-
+                                review={review}
+                                handleDelete={handleDelete}
+                            ></UserReview>)
+                        }
+                    </tbody>
+                </Table>
+            </div>
         </div >
     );
 };

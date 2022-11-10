@@ -10,7 +10,6 @@ const UserReview = ({ review, handleDelete }) => {
     useTitle('My Review')
 
     return (
-
         <tr>
             <td>
                 <img className='w-25' src={photo} alt="" />

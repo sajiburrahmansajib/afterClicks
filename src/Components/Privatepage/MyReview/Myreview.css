@@ -5,3 +5,10 @@
     margin-bottom: 20px;
     column-gap: 20px;
 }
+
+@media screen and (min-device-width: 320px) and (max-device-width: 819px) {
+    .review {
+        height: auto;
+        font-size: 5px;
+    }
+}

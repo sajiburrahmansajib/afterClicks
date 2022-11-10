@@ -12,7 +12,7 @@ const Service = ({ service }) => {
     const { _id, info } = service;
     return (
         <div>
-            <Card style={{ width: '24rem' }} className='service-card'>
+            <Card className='service-card'>
                 <PhotoProvider>
                     <PhotoView src={service.picture}>
                         <Card.Img variant="top" src={service.picture} />

@@ -1,12 +1,11 @@
 .service-card {
-    margin: auto;
-    width: 400px;
+    width: 350px;
 }
 
 @media screen and (min-device-width: 320px) and (max-device-width: 819px) {
-
     .service-card {
-        width: 280px;
-        margin: 0px;
+        width: 500px;
+        margin: auto;
+        background-color: black;
     }
 }
