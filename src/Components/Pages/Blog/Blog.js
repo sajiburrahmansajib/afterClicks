@@ -2,11 +2,12 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 import useTitle from '../../Title/useTitle';
 import img from './jwt.PNG'
+import './Blog.css'
 
 const Blog = () => {
     useTitle('Blog')
     return (
-        <div className='container'>
+        <div className='container mt-4'>
             <div >
                 <h2>Question 1 : What is the difference between SQL and NoSQL ?</h2>
                 <Table>
@@ -75,7 +76,7 @@ const Blog = () => {
                     Basically the identity provider(IdP) generates a JWT certifying user identity and Resource server decodes and verifies the authenticity of the token using secret salt / public key.</p>
 
                 <h5>Structure of JWT</h5>
-                <img src={img} alt="" />
+                <img className='jwt-image' src={img} alt="" />
                 <h6>Header</h6>
                 <p>JWT header consists of token type and algorithm used for signing and encoding. Algorithms can be HMAC, SHA256, RSA, HS256 or RS256.</p>
 

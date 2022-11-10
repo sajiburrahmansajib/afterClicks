@@ -41,3 +41,20 @@
     margin-left: 5px;
     cursor: pointer;
 }
+
+@media screen and (min-device-width: 320px) and (max-device-width: 819px) {
+    .login-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .img-container {
+        display: none;
+    }
+
+    .form-container {
+        padding: 55px 60px;
+        margin: auto;
+    }
+
+}
