@@ -7,6 +7,7 @@ import Reviews from '../Reviews/Reviews';
 import useTitle from '../../Title/useTitle';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import PrivateRoute from '../../../Route/PrivateRoute/PrivateRoute';
 
 
 const ServiceDetailsInformation = () => {
@@ -102,13 +103,16 @@ const ServiceDetailsInformation = () => {
                     <hr />
                     <h6 className='text-center'>Review</h6>
                     <>
-                        {
-                            box &&
-                            <form onSubmit={handleReviewSubmit} className='mt-2'>
-                                <textarea rows="3" cols="45" id='review' defaultValue='Enter Review here...' name="comment" ></textarea>
-                                <button className='btn btn-outline-success' type="submit">Submit</button>
-                            </form>
-                        }
+
+                        <PrivateRoute>
+                            {
+                                box &&
+                                <form onSubmit={handleReviewSubmit} className='mt-2'>
+                                    <textarea rows="3" cols="45" id='review' defaultValue='Enter Review here...' name="comment" ></textarea>
+                                    <button className='btn btn-outline-success' type="submit">Submit</button>
+                                </form>
+                            }
+                        </PrivateRoute>
 
                     </>
                     <div className='mt-2'>

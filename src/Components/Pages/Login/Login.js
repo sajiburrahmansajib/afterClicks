@@ -8,11 +8,17 @@ import { AuthContext } from '../../../Context/Authprovider/AuthProvider';
 import toast from 'react-hot-toast';
 import useTitle from '../../Title/useTitle';
 import Spinner from 'react-bootstrap/Spinner';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     useTitle('Login');
     const { login, googleLogIn, spinnerLoader, setSpinnerLoader } = useContext(AuthContext);
     setSpinnerLoader(false)
+
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
 
     const handleGoogleLogin = () => {
         googleLogIn()
@@ -20,6 +26,7 @@ const Login = () => {
                 const user = result.user;
                 toast.success('Successfully Log In')
                 console.log(user);
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error);

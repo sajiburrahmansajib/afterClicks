@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import toast from 'react-hot-toast';
 
 const AddService = () => {
     const handleAddService = (event) => {
@@ -30,8 +31,7 @@ const AddService = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('successfully insert')
-
+                    toast.success('Service Successfully Added')
                     form.reset();
 
                 }
