@@ -108,15 +108,19 @@ const ServiceDetailsInformation = () => {
                     <h6 className='text-center'>Review</h6>
                     <>
 
-                        <PrivateRoute>
-                            {
-                                box &&
+
+                        {
+
+                            box &&
+                            <PrivateRoute>
                                 <form onSubmit={handleReviewSubmit} className='mt-2'>
                                     <textarea rows="3" cols="45" id='review' defaultValue='Enter Review here...' name="comment" ></textarea>
                                     <button className='btn btn-outline-success' type="submit">Submit</button>
                                 </form>
-                            }
-                        </PrivateRoute>
+                            </PrivateRoute>
+
+                        }
+
 
                     </>
                     <div className='mt-2'>
