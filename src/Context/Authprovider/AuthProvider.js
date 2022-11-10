@@ -32,6 +32,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const logOut = () => {
+        localStorage.removeItem('afterClicksToken');
         setLoading(true);
         return signOut(auth);
     }
